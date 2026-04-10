@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Piyush & Purvi — Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap"
       rel="stylesheet"
@@ -91,7 +93,7 @@
       .hero-bg {
         position: absolute;
         inset: 0;
-        background-image: url("assets/images/ganeshJi.png");
+        background-image: url("assets/images/ganeshJi.webp");
         background-size: cover;
         background-position: center 30%;
         filter: saturate(0.65) brightness(0.5);
@@ -1127,7 +1129,7 @@
     <div class="img-strip-wrap">
       <img
         class="img-strip"
-        src="assets/images/coupleLandscape.png"
+        src="assets/images/coupleLandscape.webp"
         alt="Indian wedding mandap"
         loading="lazy"
       />
@@ -1329,7 +1331,7 @@
     <div class="img-strip-wrap">
       <img
         class="img-strip"
-        src="assets/images/coupleFooter.png"
+        src="assets/images/coupleFooter.webp"
         alt="Reception decor"
         loading="lazy"
         style="height: clamp(200px, 28vw, 360px)"
@@ -1346,7 +1348,7 @@
         <div class="venue-wrap">
           <div class="venue-img reveal">
             <img
-              src="assets/images/regentahotel.jpeg"
+              src="assets/images/regentahotel.webp"
               alt="Regenta Resort Bharatpur"
               loading="lazy"
             />
@@ -1534,47 +1536,47 @@
       els.forEach((e) => io.observe(e));
 
       /* ── AADHAAR FIELDS ── */
-      function updateAadhaarFields() {
-        const count =
-          parseInt(document.getElementById("guestCount").value) || 1;
-        const container = document.getElementById("aadhaarFields");
-        container.innerHTML = "";
-        for (let i = 1; i <= count; i++) {
-          const block = document.createElement("div");
-          block.className = "aadhaar-guest-block";
-          block.id = `guestBlock${i}`;
-          block.innerHTML = `
-      <span class="aadhaar-guest-label">Guest ${i}${i === 1 ? " — Primary Attendee" : ""}</span>
-      <input class="aadhaar-name-input" type="text" placeholder="Full name as on Aadhaar card" id="guestName${i}"/>
-      <div class="file-upload-box" id="uploadBox${i}">
-        <input type="file" accept="image/jpeg,image/png,image/jpg,application/pdf" id="aadhaarFile${i}" onchange="handleFileSelect(${i})"/>
-        <span class="file-upload-icon">🪪</span>
-        <div class="file-upload-hint"><strong>Click to upload</strong> or drag &amp; drop<br>JPG, PNG or PDF &nbsp;·&nbsp; Max 5 MB</div>
-        <div class="file-name-tag" id="fileName${i}"></div>
-      </div>
-    `;
-          container.appendChild(block);
-        }
-      }
+    //   function updateAadhaarFields() {
+    //     const count =
+    //       parseInt(document.getElementById("guestCount").value) || 1;
+    //     const container = document.getElementById("aadhaarFields");
+    //     container.innerHTML = "";
+    //     for (let i = 1; i <= count; i++) {
+    //       const block = document.createElement("div");
+    //       block.className = "aadhaar-guest-block";
+    //       block.id = `guestBlock${i}`;
+    //       block.innerHTML = `
+    //   <span class="aadhaar-guest-label">Guest ${i}${i === 1 ? " — Primary Attendee" : ""}</span>
+    //   <input class="aadhaar-name-input" type="text" placeholder="Full name as on Aadhaar card" id="guestName${i}"/>
+    //   <div class="file-upload-box" id="uploadBox${i}">
+    //     <input type="file" accept="image/jpeg,image/png,image/jpg,application/pdf" id="aadhaarFile${i}" onchange="handleFileSelect(${i})"/>
+    //     <span class="file-upload-icon">🪪</span>
+    //     <div class="file-upload-hint"><strong>Click to upload</strong> or drag &amp; drop<br>JPG, PNG or PDF &nbsp;·&nbsp; Max 5 MB</div>
+    //     <div class="file-name-tag" id="fileName${i}"></div>
+    //   </div>
+    // `;
+    //       container.appendChild(block);
+    //     }
+    //   }
 
-      function handleFileSelect(i) {
-        const input = document.getElementById(`aadhaarFile${i}`);
-        const tag = document.getElementById(`fileName${i}`);
-        const box = document.getElementById(`uploadBox${i}`);
-        if (input.files && input.files[0]) {
-          const file = input.files[0];
-          if (file.size > 5 * 1024 * 1024) {
-            alert(
-              `The file for Guest ${i} exceeds 5 MB. Please upload a smaller file.`,
-            );
-            input.value = "";
-            return;
-          }
-          tag.textContent = file.name;
-          tag.classList.add("show");
-          box.classList.add("uploaded");
-        }
-      }
+      // function handleFileSelect(i) {
+      //   const input = document.getElementById(`aadhaarFile${i}`);
+      //   const tag = document.getElementById(`fileName${i}`);
+      //   const box = document.getElementById(`uploadBox${i}`);
+      //   if (input.files && input.files[0]) {
+      //     const file = input.files[0];
+      //     if (file.size > 5 * 1024 * 1024) {
+      //       alert(
+      //         `The file for Guest ${i} exceeds 5 MB. Please upload a smaller file.`,
+      //       );
+      //       input.value = "";
+      //       return;
+      //     }
+      //     tag.textContent = file.name;
+      //     tag.classList.add("show");
+      //     box.classList.add("uploaded");
+      //   }
+      // }
 
       /* ── FILE → BASE64 HELPER ── */
       function toBase64(file) {
@@ -1587,90 +1589,90 @@
       }
 
       /* ── SUBMIT ── */
-      async function submitRSVP() {
-        const name = document.getElementById("rsvpName").value.trim();
-        const phone = document.getElementById("rsvpPhone").value.trim();
+      // async function submitRSVP() {
+      //   const name = document.getElementById("rsvpName").value.trim();
+      //   const phone = document.getElementById("rsvpPhone").value.trim();
 
-        if (!name) {
-          document.getElementById("rsvpName").focus();
-          return;
-        }
-        if (!phone) {
-          document.getElementById("rsvpPhone").focus();
-          return;
-        }
+      //   if (!name) {
+      //     document.getElementById("rsvpName").focus();
+      //     return;
+      //   }
+      //   if (!phone) {
+      //     document.getElementById("rsvpPhone").focus();
+      //     return;
+      //   }
 
-        const count =
-          parseInt(document.getElementById("guestCount").value) || 1;
+      //   const count =
+      //     parseInt(document.getElementById("guestCount").value) || 1;
 
-        // Validate all guests
-        for (let i = 1; i <= count; i++) {
-          const gName = document.getElementById(`guestName${i}`)?.value.trim();
-          const gFile = document.getElementById(`aadhaarFile${i}`)?.files[0];
-          if (!gName) {
-            alert(`Please enter the name for Guest ${i}.`);
-            document.getElementById(`guestName${i}`).focus();
-            return;
-          }
-          if (!gFile) {
-            alert(`Please upload the Aadhaar card for ${gName}.`);
-            document
-              .getElementById(`uploadBox${i}`)
-              .scrollIntoView({ behavior: "smooth", block: "center" });
-            return;
-          }
-        }
+      //   // Validate all guests
+      //   for (let i = 1; i <= count; i++) {
+      //     const gName = document.getElementById(`guestName${i}`)?.value.trim();
+      //     const gFile = document.getElementById(`aadhaarFile${i}`)?.files[0];
+      //     if (!gName) {
+      //       alert(`Please enter the name for Guest ${i}.`);
+      //       document.getElementById(`guestName${i}`).focus();
+      //       return;
+      //     }
+      //     if (!gFile) {
+      //       alert(`Please upload the Aadhaar card for ${gName}.`);
+      //       document
+      //         .getElementById(`uploadBox${i}`)
+      //         .scrollIntoView({ behavior: "smooth", block: "center" });
+      //       return;
+      //     }
+      //   }
 
-        // Lock UI
-        const btn = document.getElementById("submitBtn");
-        btn.disabled = true;
-        document.getElementById("submittingMsg").classList.add("show");
+      //   // Lock UI
+      //   const btn = document.getElementById("submitBtn");
+      //   btn.disabled = true;
+      //   document.getElementById("submittingMsg").classList.add("show");
 
-        // Build guests array with base64 files
-        const guests = [];
-        for (let i = 1; i <= count; i++) {
-          const gName = document.getElementById(`guestName${i}`).value.trim();
-          const gFile = document.getElementById(`aadhaarFile${i}`).files[0];
-          const b64 = await toBase64(gFile);
-          guests.push({
-            guestNumber: i,
-            name: gName,
-            fileName: gFile.name,
-            fileType: gFile.type,
-            fileData: b64,
-          });
-        }
+      //   // Build guests array with base64 files
+      //   const guests = [];
+      //   for (let i = 1; i <= count; i++) {
+      //     const gName = document.getElementById(`guestName${i}`).value.trim();
+      //     const gFile = document.getElementById(`aadhaarFile${i}`).files[0];
+      //     const b64 = await toBase64(gFile);
+      //     guests.push({
+      //       guestNumber: i,
+      //       name: gName,
+      //       fileName: gFile.name,
+      //       fileType: gFile.type,
+      //       fileData: b64,
+      //     });
+      //   }
 
-        const payload = {
-          primaryName: name,
-          phone: phone,
-          totalGuests: count,
-          submittedAt: new Date().toLocaleString("en-IN", {
-            timeZone: "Asia/Kolkata",
-          }),
-          guests: guests,
-        };
+      //   const payload = {
+      //     primaryName: name,
+      //     phone: phone,
+      //     totalGuests: count,
+      //     submittedAt: new Date().toLocaleString("en-IN", {
+      //       timeZone: "Asia/Kolkata",
+      //     }),
+      //     guests: guests,
+      //   };
 
-        try {
-          await fetch(SHEET_URL, {
-            method: "POST",
-            mode: "no-cors", // Google Apps Script requires no-cors
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-        } catch (err) {
-          console.warn("Sheet submit error (may still have succeeded):", err);
-        }
+      //   try {
+      //     await fetch(SHEET_URL, {
+      //       method: "POST",
+      //       mode: "no-cors", // Google Apps Script requires no-cors
+      //       headers: { "Content-Type": "application/json" },
+      //       body: JSON.stringify(payload),
+      //     });
+      //   } catch (err) {
+      //     console.warn("Sheet submit error (may still have succeeded):", err);
+      //   }
 
-        // Show confirmation regardless (no-cors gives opaque response)
-        document.getElementById("rsvpBox").style.display = "none";
-        const conf = document.getElementById("rsvpConfirm");
-        conf.style.display = "block";
-        document.getElementById("confirmMsg").textContent =
-          `Thank you, ${name}! We've received your RSVP and Aadhaar details. See you on 30th April! 💕`;
-      }
+      //   // Show confirmation regardless (no-cors gives opaque response)
+      //   document.getElementById("rsvpBox").style.display = "none";
+      //   const conf = document.getElementById("rsvpConfirm");
+      //   conf.style.display = "block";
+      //   document.getElementById("confirmMsg").textContent =
+      //     `Thank you, ${name}! We've received your RSVP and Aadhaar details. See you on 30th April! 💕`;
+      // }
 
-      document.addEventListener("DOMContentLoaded", updateAadhaarFields);
+      // document.addEventListener("DOMContentLoaded", updateAadhaarFields);
 
       /* ── FLOATING PETALS ── */
       const COLORS = [
@@ -1693,7 +1695,9 @@
         pc.appendChild(p);
         setTimeout(() => p.remove(), (dur + del + 1.5) * 1000);
       }
-      for (let i = 0; i < 24; i++) setTimeout(mkPetal, i * 300);
+      window.addEventListener("load", () => {
+  for (let i = 0; i < 24; i++) setTimeout(mkPetal, i * 300);
+});
       setInterval(() => {
         if (pc.children.length < 24) mkPetal();
       }, 650);
